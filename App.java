@@ -1,9 +1,6 @@
-package trabalhoPratico01APA;
-
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 
 public class App {
 
@@ -17,16 +14,12 @@ public class App {
 
 class Distribuicao implements Runnable {
 
-    private static final Logger logger = Logger.getLogger(Distribuicao.class.getName());
-
     @Override
     public void run() {
         Scanner input = new Scanner(System.in);
 
-        logger.log(Level.INFO, "Digite o número de crianças:");
         int numeroCriancas = input.nextInt();
 
-        logger.log(Level.INFO, "Digite a pontuação de cada criança:");
         int[] pontos = new int[numeroCriancas];
 
         for (int i = 0; i < numeroCriancas; i++) {
@@ -35,15 +28,8 @@ class Distribuicao implements Runnable {
 
         input.close();
 
-        long tempoInicio = System.nanoTime();
-
         long totalDoces = calcularTotalDoces(numeroCriancas, pontos);
-        logger.log(Level.INFO, "O número mínimo de doces que a professora Alice deve comprar é: {0}", totalDoces);
-        long tempoFim = System.nanoTime();
-
-        long duracao = (tempoFim - tempoInicio);
-        logger.log(Level.WARNING, "Tempo de execução: {0} nanosegundos", duracao);
-
+        System.out.println(totalDoces);
     }
 
     private long calcularTotalDoces(int numeroCriancas, int[] pontos) {
