@@ -35,14 +35,14 @@ class Distribuicao implements Runnable {
 
         input.close();
 
-        long startTime = System.nanoTime();
+        long tempoInicio = System.nanoTime();
 
         long totalDoces = calcularTotalDoces(numeroCriancas, pontos);
         logger.log(Level.INFO, "O número mínimo de doces que a professora Alice deve comprar é: {0}", totalDoces);
-        long endTime = System.nanoTime();
+        long tempoFim = System.nanoTime();
 
-        long duration = (endTime - startTime);
-        logger.log(Level.WARNING, "Tempo de execução: {0} nanosegundos", duration);
+        long duracao = (tempoFim - tempoInicio);
+        logger.log(Level.WARNING, "Tempo de execução: {0} nanosegundos", duracao);
 
     }
 
